@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home and Reset Password</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/my-login.css') }}">
+</head>
+<body class="my-login-page">
+    <section class="h-100">
+        <div class="container h-100">
+            <div class="row justify-content-md-center h-100">
+                <div class="card-wrapper">
+                    <div class="brand">
+                        <img src="{{ url_for('static', filename='img/logo(form).png') }}">
+                    </div>
+                    <div class="card fat">
+                        <div class="card-body">
+                            <h4 class="card-title">Home Page</h4>
+                            {% if session.get('email') %}
+                                <h1>Welcome, {{ session.get('username') }}!</h1>
+                                <p>You are already logged in.</p>
+                                <form action="{{ url_for('logout') }}" method="get">
+                                    <button type="submit" class="btn btn-primary btn-block">Logout</button>
+                                </form>
+                            {% else %}
+                                <p>You are not logged in. Please login to access the home page.</p>
+                                <form action="{{ url_for('login') }}" method="get">
+                                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                                </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="footer">
+                        Copyright &copy; 2024 &mdash; Claud de monet
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
