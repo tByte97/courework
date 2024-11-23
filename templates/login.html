@@ -32,10 +32,9 @@
                                     <div class="invalid-feedback">Password is required</div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="custom-checkbox custom-control">
-                                        <input type="checkbox" name="remember" id="remember" class="custom-control-input">
-                                        <label for="remember" class="custom-control-label">Remember Me</label>
-                                    </div>
+                                    <input type="checkbox" onclick="showPassword()"> Show Password
+                                </div>
+                                <div class="form-group">
                                 </div>
                                 <div class="form-group m-0">
                                     <button type="submit" class="btn btn-primary btn-block">Login</button>
@@ -56,5 +55,16 @@
             </div>
         </div>
     </section>
+
+    <script>
+        function showPassword() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
 </body>
 </html>

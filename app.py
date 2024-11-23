@@ -3,13 +3,13 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_mysqldb import MySQL
 
 app = Flask(__name__)
+mysql = MySQL(app)
 app.secret_key = 'your-secret-key'
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'root'
 app.config['MYSQL_DB'] = 'register_users'
 
-mysql = MySQL(app)
 
 
 @app.route('/')

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset Password</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/my-login.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/my-login.css') }}">
 </head>
 <body class="my-login-page">
     <section class="h-100">
@@ -20,14 +20,17 @@
                             <h4 class="card-title">Reset Password</h4>
                             <form method="POST" class="my-login-validation" novalidate="">
                                 <div class="form-group">
-                                    <label for="username">Username</label>
-                                    <input id="username" type="text" class="form-control" name="username" required>
-                                    <div class="invalid-feedback">What's your username?</div>
+                                    <label for="email">Email</label>
+                                    <input id="email" type="text" class="form-control" name="email" required>
+                                    <div class="invalid-feedback">What's your email?</div>
                                 </div>
                                 <div class="form-group">
                                     <label for="newPassword">New Password</label>
                                     <input id="newPassword" type="password" class="form-control" name="newPassword" required data-eye>
                                     <div class="invalid-feedback">Password is required</div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox" onclick="showPassword()"> Show Password
                                 </div>
                                 <div class="form-group m-0">
                                     <button type="submit" class="btn btn-primary btn-block">Reset Password</button>
@@ -45,4 +48,16 @@
             </div>
         </div>
     </section>
+
+    <script>
+        function showPassword() {
+            var x = document.getElementById("newPassword");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
 </body>
+</html>
